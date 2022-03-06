@@ -8,11 +8,16 @@ async function index(req, res) {
     return res.status(500).json({ message: `Error:${err.message}` });
   }
 }
-async function single(req, res) {
+async function store(req, res) {
   try {
-    const templeteId = req.params.id
-    const templete = await Models.Templete.findByPk(templeteId)
-    return res.status(200).json(templete.html);
+    const {name, html} = req.body
+
+    const template = {
+      name: name,
+      html: html
+    }
+    await Models.Templete.create(template)
+    return res.status(201).json({message: "Template created"});
   } catch (err) {
     return res.status(500).json({ message: `Error:${err.message}` });
   }
@@ -20,5 +25,5 @@ async function single(req, res) {
 
 module.exports = {
   index,
-  single
+  store
 };

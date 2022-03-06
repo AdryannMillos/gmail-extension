@@ -3,9 +3,9 @@ InboxSDK.load(2, 'sdk_Adryann_6a1d89bf45').then(function (sdk) {
   sdk.Compose.registerComposeViewHandler(function (composeView) {
     // a compose view has come into existence, do something with it!
     composeView.addButton({
-      title: "Working",
+      title: "Adryann",
       hasDropdown: true,
-      iconUrl: 'https://example.com/foo.png',
+      iconUrl: 'https://img2.gratispng.com/20180517/vle/kisspng-puppy-miniature-pinscher-german-pinscher-whiskers-5afdaceb3696e5.8948515215265743152236.jpg',
       onClick: function (event) {
         event.dropdown.el.innerHTML = "<iframe src='http://localhost:3000/' id='iframeId'title='list of templetes'></iframe>";
       },

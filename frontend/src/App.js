@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+
 import axios from 'axios';
 
 function App() {
   const [error, setError] = useState(false);
   const [templetes, setTempletes] = useState([]);
-  const [templeteMessage, setTempleteMessage] = useState([])
+ 
+
+
   useEffect(() => {
     const fecthData = async () => {
       try {
@@ -18,24 +21,25 @@ function App() {
   }, []);
   const printHandler = (e) => {
     e.preventDefault();
-    const name = e.target.dataset.name;
-    window.top.postMessage({ message: name }, '*');
+    const html = e.target.dataset.html;
+    window.top.postMessage({ message: html }, '*');
   };
-
   return (
     <div className="App" id="teste">
+      <nav className="navbar navbar-light bg-light">
+        <span className="navbar-brand mb-0 h1">My Templates</span>
+      </nav>
       <ul>
         {templetes.map((templete) => (
           <li
             key={templete.id}
-            data-name={templete.name}
+            data-html={templete.html}
             onClick={printHandler}
-          >{templete.name} id {templete.id}
+          >{templete.name}
           </li>
         ))}
       </ul>
     </div>
-
   );
 }
 

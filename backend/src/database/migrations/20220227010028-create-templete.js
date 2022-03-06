@@ -14,7 +14,7 @@ module.exports = {
         unique: true,
       },
       html: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1234),
         allowNull: false,
       },
       createdAt: {
